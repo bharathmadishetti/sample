@@ -12,6 +12,7 @@ public class GoogleTest {
 		System.setProperty("webdriver.gecko.driver", "browsers/geckodriver.exe");
         driver = new FirefoxDriver();
         driver.get("http://www.flipkart.com");
+        driver.navigate().to("www.amzon.ca");
 	}
 
 }
