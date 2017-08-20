@@ -18,7 +18,7 @@ public class GoogleTest {
         driver.navigate().to("www.amzon.ca");
         }
         if (country.equalsIgnoreCase("india")){
-        driver.navigate().to("www.amazon.in");
+        driver.navigate().to("www.amazon.com");
         }
 
 	}
