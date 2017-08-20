@@ -11,7 +11,7 @@ public class GoogleTest {
 		 WebDriver driver;
 		System.setProperty("webdriver.gecko.driver", "browsers/geckodriver.exe");
         driver = new FirefoxDriver();
-        driver.get("http://www.google.com");
+        driver.get("http://www.facebook.com");
 	}
 
 }
