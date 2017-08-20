@@ -12,7 +12,14 @@ public class GoogleTest {
 		System.setProperty("webdriver.gecko.driver", "browsers/geckodriver.exe");
         driver = new FirefoxDriver();
         driver.get("http://www.flipkart.com");
+        String country = "Canada";
+        if (country.equalsIgnoreCase("Canada")){
         driver.navigate().to("www.amzon.ca");
+        }
+        if (country.equalsIgnoreCase("india")){
+        driver.navigate().to("www.amazon.in");
+        }
+
 	}
 
 }
