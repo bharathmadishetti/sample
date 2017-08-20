@@ -14,6 +14,7 @@ public class GoogleTest {
         driver.get("http://www.flipkart.com");
         String country = "Canada";
         //testing
+        //based on country 
         if (country.equalsIgnoreCase("Canada")){
         driver.navigate().to("www.amzon.ca");
         }
