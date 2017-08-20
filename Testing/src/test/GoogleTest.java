@@ -13,6 +13,7 @@ public class GoogleTest {
         driver = new FirefoxDriver();
         driver.get("http://www.flipkart.com");
         String country = "Canada";
+        //based on country 
         if (country.equalsIgnoreCase("Canada")){
         driver.navigate().to("www.amzon.ca");
         }
