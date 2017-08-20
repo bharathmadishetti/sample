@@ -11,6 +11,7 @@ public class GoogleTest {
 		 WebDriver driver;
 		System.setProperty("webdriver.gecko.driver", "browsers/geckodriver.exe");
         driver = new FirefoxDriver();
+        //test2
         driver.get("http://www.flipkart.com");
         String country = "Canada";
         //testing
