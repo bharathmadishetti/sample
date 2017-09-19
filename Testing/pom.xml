@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>Testing</groupId>
-  <artifactId>Testing</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <testSourceDirectory>src</testSourceDirectory>
-    <testOutputDirectory>bin</testOutputDirectory>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>Testing</groupId>
+	<artifactId>Testing</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<testSourceDirectory>src</testSourceDirectory>
+		<testOutputDirectory>bin</testOutputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -18,8 +19,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
-  </build>
-  <dependencies>
+	</build>
+	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -42,6 +43,11 @@
 			<artifactId>testng</artifactId>
 			<version>6.10</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.16</version>
 		</dependency>
 	</dependencies>
 </project>
