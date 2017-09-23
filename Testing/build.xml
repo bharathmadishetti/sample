@@ -1,0 +1,69 @@
+<project name="Sample Ant build" basedir=".">
+	<!-- ========== Initialize Properties =================================== -->
+	<!-- set global properties for build -->
+	<property name="basedir" value="." />
+	<property name="lib" value="${basedir}\jars" />
+	<property name="src" value="${basedir}\src" />
+	<property name="bin" value="${basedir}\bin" />
+	<property name="report-dir" value="${basedir}\Test-Report" />
+	<property name="testng-report-dir" value="${report-dir}\TestNGreport" />
+
+	<!-- ====== Set the classpath ====  -->
+	<path id="classpath">
+		<pathelement location="${bin}" />
+		<fileset dir="${lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<!-- Delete directories  -->
+	<target name="delete-dir">
+		<delete dir="${bin}" />
+		<delete dir="${testng-report-dir}" />
+		<delete dir="${report-dir}" />
+	</target>
+
+	<!-- Creating directories -->
+	<target name="create" depends="delete-dir">
+		<mkdir dir="${bin}" />
+		<mkdir dir="${testng-report-dir}" />
+		<mkdir dir="${report-dir}" />
+	</target>
+
+	<!-- Compile the java code from ${src} into ${bin} -->
+	<target name="compile" depends="create">
+		<javac srcdir="${src}" classpathref="classpath" includeAntRuntime="No" destdir="${bin}" />
+		<echo> /* Compiled Directory Classes */ </echo>
+	</target>
+
+	<!-- Runs the file and generates Reportng report for TestNG-->
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="classpath" />
+
+	<target name="testng-execution" depends="compile">
+		<mkdir dir="${testng-report-dir}" />
+		<testng outputdir="${testng-report-dir}" classpathref="classpath" useDefaultListeners="true">
+			<xmlfileset dir="${basedir}" includes="testng.xml" />
+		</testng>
+	</target>
+
+
+
+	<target name="sendMail" depends="testng-execution">
+		<zip destfile="${testng-report-dir}/output.zipx" basedir="${testng-report-dir}/" />
+		<mail
+		tolist="bharathmadishetti@gmail.com"
+		from="oatstesting@gmail.com"
+		subject="Email subject"
+		mailhost="smtp.gmail.com"
+		mailport="465"
+		ssl="true"
+		user="oatstesting@gmail.com"
+		password="sfqatest">
+		<attachments>
+		<fileset dir="${testng-report-dir}/">
+		<include name="emailable-report.html"/>
+		</fileset>
+		</attachments>
+		</mail>
+		</target>
+</project>
